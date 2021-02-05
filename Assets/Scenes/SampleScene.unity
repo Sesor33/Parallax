@@ -146,6 +146,8 @@ MonoBehaviour:
   - {fileID: 5185889091341190320, guid: 3a5788410dcfefd4f84319b9ed118ece, type: 3}
   - {fileID: 1154607859674553514, guid: 5703263cc72c49245947cdaed49952b8, type: 3}
   - {fileID: 5185889091341190320, guid: e4a60a17fc96b1d43bc0f834cfc620c2, type: 3}
+  - {fileID: 444920099053768835, guid: 351c8a9c15eb5704aabfa9e0e86e77df, type: 3}
+  - {fileID: 6797378811022511130, guid: 80a04ac01f9ad7d49ac103a46501dfc4, type: 3}
   topRooms:
   - {fileID: 65292491444818613, guid: eee5ca919e0eef94ba60ce7afd3f3950, type: 3}
   - {fileID: 1154607859674553514, guid: 5703263cc72c49245947cdaed49952b8, type: 3}

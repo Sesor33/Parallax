@@ -19,6 +19,9 @@ public class RoomSpawner : MonoBehaviour
     void SpawnNewRoom() {
         if (isSpawned == false) {
             switch (opening) {
+                case 0:
+                    break;
+                //need bot
                 case 1:
                     rngRngPleaseBeNiceToMe = Random.Range(0, templates.botRooms.Length);
                     Instantiate(templates.botRooms[rngRngPleaseBeNiceToMe], transform.position, Quaternion.identity);

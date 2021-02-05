@@ -8,6 +8,10 @@ public class Destroyer : MonoBehaviour
         if (other.gameObject.tag == "Decoration") {
             Destroy(other.gameObject);
         }
+
+        if (other.gameObject.tag == "Room") {
+            Destroy(other.gameObject);
+        }
         
         
     }
