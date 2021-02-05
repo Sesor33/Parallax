@@ -13,7 +13,7 @@ public class RoomSpawner : MonoBehaviour
 
     void Start() {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        Invoke("SpawnNewRoom", 0.25f);
+        Invoke("SpawnNewRoom", 0.1f);
     }
 
     void SpawnNewRoom() {
