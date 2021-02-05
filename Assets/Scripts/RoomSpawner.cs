@@ -5,6 +5,7 @@ using UnityEngine;
 public class RoomSpawner : MonoBehaviour
 {
     public int opening; //1, bot. 2, top. 3, left. 4, right. This is what door the point NEEDS
+    public float spawnSpeed = 0.1f; //Make this higher to debug, lower for the real game
 
     private RoomTemplates templates;
 
@@ -13,7 +14,7 @@ public class RoomSpawner : MonoBehaviour
 
     void Start() {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        Invoke("SpawnNewRoom", 0.1f);
+        Invoke("SpawnNewRoom", spawnSpeed);
     }
 
     void SpawnNewRoom() {
