@@ -12,7 +12,10 @@ public class RoomSpawner : MonoBehaviour
     private int rngRngPleaseBeNiceToMe;
     private bool isSpawned = false;
 
+    //Time before spawnpoints destroy themselves in seconds
+
     void Start() {
+        
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
         Invoke("SpawnNewRoom", spawnSpeed);
     }

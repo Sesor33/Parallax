@@ -101,6 +101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 444920099053768834}
+  - component: {fileID: 114121260638601960}
   m_Layer: 0
   m_Name: BLJointBot
   m_TagString: Room
@@ -199,6 +200,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114121260638601960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444920099053768835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fb6aa492dbc1cb429cadb8217dee59c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3491037351899066519
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,6 +765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   opening: 4
+  spawnSpeed: 0.1
 --- !u!1 &6345944669683340920
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,6 +951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   opening: 2
+  spawnSpeed: 0.1
 --- !u!1001 &444920098898223228
 PrefabInstance:
   m_ObjectHideFlags: 0
