@@ -9,12 +9,13 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed;
     Rigidbody2D rig;
 
-    public Text collectedScore;
-    public static int numBits = 0;
+    //public Text collectedScore;
+    //public static int numBits = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameObject.tag = "Player";
         rig = GetComponent<Rigidbody2D>();
     }
 
@@ -25,6 +26,6 @@ public class PlayerController : MonoBehaviour
         float v = Input.GetAxis("Vertical");
 
         rig.velocity = new Vector3(h * playerSpeed, v * playerSpeed, 0);
-        collectedScore.text = "Bits: " + numBits;
+        //collectedScore.text = "Bits: " + numBits;
     }
 }

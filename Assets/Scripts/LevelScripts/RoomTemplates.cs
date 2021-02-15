@@ -21,7 +21,7 @@ public class RoomTemplates : MonoBehaviour
     public GameObject exit;
 
     private void Start() {
-        Instantiate(playerCharacter, rooms[0].transform.position, Quaternion.identity);
+        //Instantiate(playerCharacter, rooms[0].transform.position, Quaternion.identity);
     }
 
     void Update() {
