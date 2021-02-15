@@ -14,8 +14,9 @@ public class ScrollMenuBackground : MonoBehaviour
     }
 
     void Update() {
-        float x = Mathf.Repeat(Time.time * scrollSpeed, 1);
-        Vector2 offset = new Vector2(x, 0);
+        float y = Mathf.Repeat(Time.time * scrollSpeed, 1);
+        Vector2 offset = new Vector2(0, y);
         renderer.sharedMaterial.SetTextureOffset("_MainTex", offset);
+        
     }
 }
