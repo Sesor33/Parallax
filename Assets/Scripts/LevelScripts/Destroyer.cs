@@ -16,7 +16,7 @@ public class Destroyer : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        if (other.gameObject.tag == "Room") {
+        else if (other.gameObject.tag == "Room") {
             templates.rooms.Remove(other.gameObject);
             Destroy(other.gameObject);
         }
