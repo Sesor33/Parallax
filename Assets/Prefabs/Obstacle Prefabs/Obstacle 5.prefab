@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 898185823497165081}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Obstacle 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,6 +101,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wallspawner (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3217665244501429833, guid: ce5006263356e8041bb07384f00c9014,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce5006263356e8041bb07384f00c9014, type: 3}
 --- !u!4 &3712347267114912717 stripped
@@ -175,6 +180,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wallspawner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217665244501429833, guid: ce5006263356e8041bb07384f00c9014,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce5006263356e8041bb07384f00c9014, type: 3}
@@ -251,6 +261,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wallspawner (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3217665244501429833, guid: ce5006263356e8041bb07384f00c9014,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce5006263356e8041bb07384f00c9014, type: 3}
 --- !u!4 &1365834494960094714 stripped
@@ -325,6 +340,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wallspawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3217665244501429833, guid: ce5006263356e8041bb07384f00c9014,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce5006263356e8041bb07384f00c9014, type: 3}
