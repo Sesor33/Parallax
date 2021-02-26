@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4601599148736268330}
   - component: {fileID: 4601599148736268329}
   - component: {fileID: 4850572496785377992}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall Tile Vent 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
