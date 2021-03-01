@@ -1103,6 +1103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a9595ab1b9f6f4bbc3a58d5f0088b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clips: []
 --- !u!4 &417013541
 Transform:
   m_ObjectHideFlags: 0
