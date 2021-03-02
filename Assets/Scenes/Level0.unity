@@ -1103,7 +1103,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a9595ab1b9f6f4bbc3a58d5f0088b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clips: []
+  clips:
+  - name: BGM
+    clip: {fileID: 8300000, guid: 078936d637fef144190f23751b96a7bd, type: 3}
+    vol: 0.551
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: BGSFX
+    clip: {fileID: 8300000, guid: e61030e62c9234d429fccebb68cd80d1, type: 3}
+    vol: 0.138
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
 --- !u!4 &417013541
 Transform:
   m_ObjectHideFlags: 0
@@ -2964,6 +2976,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1751450185}
+  quitMenu: {fileID: 903798559}
+  mainMenuMenu: {fileID: 1103239122}
+  am: {fileID: 417013540}
 --- !u!1 &1751450185
 GameObject:
   m_ObjectHideFlags: 0

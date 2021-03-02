@@ -17,7 +17,7 @@ public class WeaponLogic : MonoBehaviour
         float rotationZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotationZ + offset);
 
-        if (timeBetweenShots <= 0) {
+        if (timeBetweenShots <= 0 && !PauseMenu.isPaused) {
             if (Input.GetMouseButtonDown(0)) {
                 Instantiate(bullet, startingPoint.position, transform.rotation);
                 timeBetweenShots = startTimeBetweenShots;

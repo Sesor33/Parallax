@@ -7,7 +7,12 @@ public class PauseMenu : MonoBehaviour
 {
 
     public GameObject pauseMenu;
-    private bool isPaused = false;
+    public GameObject quitMenu;
+    public GameObject mainMenuMenu;
+    [HideInInspector]
+    public static bool isPaused = false;
+
+    public AudioManager am;
 
     // Start is called before the first frame update
     void Start()
@@ -32,12 +37,16 @@ public class PauseMenu : MonoBehaviour
     public void pause() {
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
+        am.Pause("BGM");
         isPaused = true;
     }
 
     public void resume() {
         pauseMenu.SetActive(false);
+        quitMenu.SetActive(false);
+        mainMenuMenu.SetActive(false);
         Time.timeScale = 1f;
+        am.Unpause("BGM");
         isPaused = false;
     }
 
