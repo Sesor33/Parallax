@@ -12,11 +12,11 @@ public class PauseMenu : MonoBehaviour
     [HideInInspector]
     public static bool isPaused = false;
 
-    public AudioManager am;
-
+    private AudioManager am; 
     // Start is called before the first frame update
     void Start()
     {
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         pauseMenu.SetActive(false);
     }
 
