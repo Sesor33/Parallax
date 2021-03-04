@@ -5,18 +5,31 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameManager manager;
+
+    public Animator transitionController;
 
     private void Start() {
-        manager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
     }
 
     public void startGame() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        manager.InitializeGame();
+        LoadNextLevel();
     }
 
     public void quitGame() {
         Application.Quit();
+    }
+
+    public void LoadNextLevel() {
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+
+
+    IEnumerator LoadLevel(int levelIndex) {
+        transitionController.SetTrigger("Start");
+
+        yield return new WaitForSeconds(2f);
+
+        SceneManager.LoadScene(levelIndex);
     }
 }

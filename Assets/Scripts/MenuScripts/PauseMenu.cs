@@ -12,6 +12,8 @@ public class PauseMenu : MonoBehaviour
     [HideInInspector]
     public static bool isPaused = false;
 
+    public Animator transitionController;
+
     private AudioManager am; 
     // Start is called before the first frame update
     void Start()
@@ -53,10 +55,23 @@ public class PauseMenu : MonoBehaviour
     public void goToMainMenu() {
         Time.timeScale = 1f;
         isPaused = false;
-        SceneManager.LoadScene("MainMenu");
+        am.Stop("BGM");
+        LoadMainMenu();
     }
 
     public void quitGame() {
         Application.Quit();
+    }
+
+    public void LoadMainMenu() {
+        StartCoroutine(LoadLevel(0)); //Main Menu
+    }
+
+    IEnumerator LoadLevel(int levelIndex) {
+        transitionController.SetTrigger("Start");
+
+        yield return new WaitForSeconds(2f);
+
+        SceneManager.LoadScene(levelIndex);
     }
 }
