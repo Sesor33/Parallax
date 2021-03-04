@@ -15,9 +15,7 @@ public class RoomTemplates : MonoBehaviour
 
     public float timeUntilExitpawns;
     private bool exitSpawned;
-    private bool playerSpawned;
 
-    public GameObject playerCharacter;
     public GameObject exit;
 
     private void Start() {

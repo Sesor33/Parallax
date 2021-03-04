@@ -5,11 +5,23 @@ using System;
 public class AudioManager : MonoBehaviour
 
 {
+    public static AudioManager instance;
+
     public Sound[] clips;
 
     // Start is called before the first frame update
     void Awake ()
     {
+        if (instance == null) {
+            instance = this;
+        }
+        else {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+
         foreach (Sound s in clips) {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -21,7 +33,7 @@ public class AudioManager : MonoBehaviour
     }
 
     private void Start() {
-        Play("BGM");
+        //Play("BGM");
     }
 
     public void Play (string name) {
