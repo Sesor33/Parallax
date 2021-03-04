@@ -52,10 +52,10 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
     }
 
-    public void goToMainMenu() {
-        Time.timeScale = 1f;
+    public void goToMainMenu() {       
         isPaused = false;
         am.Stop("BGM");
+        Time.timeScale = 1f;
         LoadMainMenu();
     }
 
@@ -71,7 +71,7 @@ public class PauseMenu : MonoBehaviour
         transitionController.SetTrigger("Start");
 
         yield return new WaitForSeconds(2f);
-
+        
         SceneManager.LoadScene(levelIndex);
     }
 }
