@@ -14,11 +14,16 @@ public class PauseMenu : MonoBehaviour
 
     public Animator transitionController;
 
-    private AudioManager am; 
+    private AudioManager am;
+    private GameManager gm;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
         am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         pauseMenu.SetActive(false);
     }
 
@@ -39,7 +44,7 @@ public class PauseMenu : MonoBehaviour
     public void pause() {
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
-        am.Pause("BGM");
+        am.Pause("BGM" + GameManager.floor);
         isPaused = true;
     }
 
@@ -48,14 +53,15 @@ public class PauseMenu : MonoBehaviour
         quitMenu.SetActive(false);
         mainMenuMenu.SetActive(false);
         Time.timeScale = 1f;
-        am.Unpause("BGM");
+        am.Unpause("BGM" + GameManager.floor);
         isPaused = false;
     }
 
     public void goToMainMenu() {       
         isPaused = false;
-        am.Stop("BGM");
+        am.Stop("BGM" + GameManager.floor);
         Time.timeScale = 1f;
+        Debug.Log("Attempting to load main menu from pausemenu");
         LoadMainMenu();
     }
 
@@ -64,14 +70,18 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void LoadMainMenu() {
+        Debug.Log("About to initialize load main menu from pause menu");
         StartCoroutine(LoadLevel(0)); //Main Menu
     }
 
     IEnumerator LoadLevel(int levelIndex) {
+        Debug.Log("Made it into LoadLevel");
         transitionController.SetTrigger("Start");
 
         yield return new WaitForSeconds(2f);
-        
+
         SceneManager.LoadScene(levelIndex);
     }
+
+
 }

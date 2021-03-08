@@ -9,12 +9,15 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public int currentHealth;
 
+    public GameManager gm;
+
     //[HideInInspector]
     public HealthBar playerHealthBar;
 
     // Start is called before the first frame update
     void Start()
     {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         playerHealthBar = FindObjectOfType<HealthBar>().GetComponent<HealthBar>();
         currentHealth = startingHealth;
         playerHealthBar.SetMaxHealth(startingHealth);
@@ -24,7 +27,8 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space)) {
-            DamagePlayer(5);
+            //DamagePlayer(5);
+            gm.LoadNextLevel();
         }
     }
 

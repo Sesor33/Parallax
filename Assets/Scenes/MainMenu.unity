@@ -1566,6 +1566,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[0].name
+      value: BGM1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[4].name
+      value: BGM2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: afeed4bc0ddc840478f736a6f972a9d0, type: 3}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[4].vol
+      value: 0.138
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[4].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[4].loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6394015182165578132, guid: 8be1bb3aeedba274c955f619308c870e,
         type: 3}
       propertyPath: m_Name

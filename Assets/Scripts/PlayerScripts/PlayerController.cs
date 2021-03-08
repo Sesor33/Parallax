@@ -22,10 +22,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        if (!GameManager.playerIsDead) {
+            float h = Input.GetAxis("Horizontal");
+            float v = Input.GetAxis("Vertical");
 
-        rig.velocity = new Vector3(h * playerSpeed, v * playerSpeed, 0);
+            rig.velocity = new Vector3(h * playerSpeed, v * playerSpeed, 0);
+        }
+
+        else {
+            rig.velocity = new Vector3(0, 0, 0);
+        }
+        
         //collectedScore.text = "Bits: " + numBits;
     }
 }
