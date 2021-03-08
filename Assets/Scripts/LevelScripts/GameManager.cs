@@ -34,12 +34,23 @@ public class GameManager : MonoBehaviour
 
     }
 
-    
+    // called first
+    void OnEnable() {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
 
     // called second
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         Debug.Log("OnSceneLoaded: " + scene.name);
         Debug.Log(mode);
+
+        if (SceneManager.GetActiveScene().buildIndex == 0) {
+            Destroy(gameObject);
+        }
+        else if (SceneManager.GetActiveScene().buildIndex > 1) {
+            RepopulateAfterLevelChange();
+        }
+        
     }
 
     // Start is called before the first frame update
@@ -48,11 +59,7 @@ public class GameManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex == 1) {
             InitializeGame();
-        }
-
-        else {
-            am.Play("BGM" + floor);
-        }
+        }     
 
     }
 
@@ -66,13 +73,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void InitializeGame() {
-        player = GameObject.Find("Player").GetComponent<Player>();
-        playerIsDead = false;
+    public void InitializeGame() {       
         floor = 1;
         Debug.Log("Attempting to play BGM1");
         am.Play("BGM1");
         
+    }
+
+    public void RepopulateAfterLevelChange() {
+        player = GameObject.Find("Player").GetComponent<Player>();
+        playerIsDead = false;
+        am.Play("BGM" + floor);
     }
 
     public void LoadNextLevel() {
