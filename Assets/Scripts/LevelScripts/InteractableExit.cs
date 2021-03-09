@@ -8,6 +8,7 @@ public class InteractableExit : MonoBehaviour
     public KeyCode interactKey;
 
     public GameManager gm;
+    public GameObject exitText;
 
 
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class InteractableExit : MonoBehaviour
         if (collision.gameObject.CompareTag("Player")) {
             isInRange = true;
             Debug.Log("In range");
+            exitText.SetActive(true);
         }
     }
 
@@ -37,6 +39,7 @@ public class InteractableExit : MonoBehaviour
         if (collision.gameObject.CompareTag("Player")) {
             isInRange = false;
             Debug.Log("Out of range");
+            exitText.SetActive(false);
         }
     }
 }
