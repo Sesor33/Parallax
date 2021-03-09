@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!GameManager.playerIsDead) {
             float h = Input.GetAxis("Horizontal");
