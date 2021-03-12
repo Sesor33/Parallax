@@ -19,8 +19,10 @@ public class SmoothCam : MonoBehaviour {
     }
 
     void FollowObject() {
+        Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 targetPos = objectToFollow.position + camOffset;
-        Vector3 smoothPos = Vector3.Lerp(transform.position, targetPos, smoothing * Time.fixedDeltaTime);
+        Vector3 midPos = new Vector3(((targetPos.x + diff.x) / 2), ((targetPos.y + diff.y) / 2), ((targetPos.z + diff.z) / 2));
+        Vector3 smoothPos = Vector3.Lerp(transform.position , midPos, smoothing * Time.fixedDeltaTime);
         transform.position = smoothPos;
     }
 }

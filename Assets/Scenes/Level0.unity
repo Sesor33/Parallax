@@ -1244,7 +1244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToFollow: {fileID: 0}
   camOffset: {x: 0, y: 0, z: -10}
-  smoothing: 6.05
+  smoothing: 10
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
