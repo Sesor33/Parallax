@@ -9,20 +9,24 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed;
     Rigidbody2D rig;
 
+    private bool canMove;
+
     //public Text collectedScore;
     //public static int numBits = 0;
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        canMove = false;
         gameObject.tag = "Player";
         rig = GetComponent<Rigidbody2D>();
+        Invoke("startMove", 1f);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!GameManager.playerIsDead) {
+        if (!GameManager.playerIsDead && canMove) {
             float h = Input.GetAxis("Horizontal");
             float v = Input.GetAxis("Vertical");
 
@@ -34,5 +38,9 @@ public class PlayerController : MonoBehaviour
         }
         
         //collectedScore.text = "Bits: " + numBits;
+    }
+
+    void startMove() {
+        canMove = true;
     }
 }

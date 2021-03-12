@@ -6,16 +6,26 @@ public class SmoothCam : MonoBehaviour {
     [Range(1, 10)]
     public float smoothing;
 
+    private bool followEnabled;
+
     private void Start() {
+        followEnabled = false;
         Invoke("setPlayerFollow", 0.1f);
+        Invoke("enableFollowing", 1f);
     }
 
     private void FixedUpdate() {
-        FollowObject();
+        if (followEnabled) {
+            FollowObject();
+        }     
     }
 
     private void setPlayerFollow() {
         objectToFollow = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    private void enableFollowing() {
+        followEnabled = true;
     }
 
     void FollowObject() {
