@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Find game manager, reference it, initialize health bar
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         playerHealthBar = FindObjectOfType<HealthBar>().GetComponent<HealthBar>();
         currentHealth = startingHealth;

@@ -50,7 +50,7 @@ public class RoomSpawner : MonoBehaviour
         }
     
     }
-
+    //Handles spawning closed room in case of void in world
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("SpawnPoint") ) {
             if (other.GetComponent<RoomSpawner>().isSpawned == false && isSpawned == false) {

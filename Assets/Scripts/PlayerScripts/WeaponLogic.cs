@@ -8,9 +8,14 @@ public class WeaponLogic : MonoBehaviour
 
     public GameObject bullet;
     public Transform startingPoint;
+    public AudioManager am;
 
     private float timeBetweenShots;
     public float startTimeBetweenShots;
+
+    private void Start() {
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
 
     private void Update() {
         Vector3 diff = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -19,8 +24,10 @@ public class WeaponLogic : MonoBehaviour
 
         if (timeBetweenShots <= 0 && !PauseMenu.isPaused) {
             if (Input.GetMouseButtonDown(0)) {
-                Instantiate(bullet, startingPoint.position, transform.rotation);
-                timeBetweenShots = startTimeBetweenShots;
+                Quaternion bulletDrift = Quaternion.Euler(0, 0, Random.Range(-5f,5f)); //Pick random drift range
+                Instantiate(bullet, startingPoint.position, transform.rotation * bulletDrift); //Fire bullet with drift
+                am.Play("BlasterSFX1"); //Self explanatory
+                timeBetweenShots = startTimeBetweenShots; //Restart timer
             }
 
             
