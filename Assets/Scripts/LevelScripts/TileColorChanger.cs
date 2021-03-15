@@ -17,6 +17,9 @@ public class TileColorChanger : MonoBehaviour
             case 2:
                 spriteRend.material.color = new Color32(0,0,200,255);
                 break;
+            case 3:
+                spriteRend.material.color = new Color32(0, 150, 0, 255);
+                break;
         }
     }
 

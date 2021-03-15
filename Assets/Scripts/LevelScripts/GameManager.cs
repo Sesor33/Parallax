@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
     public void RepopulateAfterLevelChange() {
         player = GameObject.Find("Player").GetComponent<Player>();
         playerIsDead = false;
+        transitionController = GameObject.Find("Fade").GetComponent<Animator>();
         am.Play("BGM" + floor);
     }
 
