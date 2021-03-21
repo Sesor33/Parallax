@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     public static bool playerIsDead;
     public static int floor;
+    public static bool isDebug;
 
     void Awake() {
         DontDestroyOnLoad(gameObject);
@@ -41,8 +42,10 @@ public class GameManager : MonoBehaviour
 
     // called second
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-        Debug.Log("OnSceneLoaded: " + scene.name);
-        Debug.Log(mode);
+        if (isDebug) {
+            Debug.Log("OnSceneLoaded: " + scene.name);
+            Debug.Log(mode);
+        }       
 
         if (SceneManager.GetActiveScene().buildIndex == 0) {
             Destroy(gameObject);
@@ -68,14 +71,25 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (player.currentHealth <= 0) {
-            Debug.Log("GAME OVER");
+            if (isDebug) {
+                Debug.Log("GAME OVER");
+            }
+            
             playerIsDead = true;
         }
     }
 
     public void InitializeGame() {       
         floor = 1;
-        Debug.Log("Attempting to play BGM1");
+
+        player = GameObject.Find("Player").GetComponent<Player>();
+
+        playerIsDead = false;
+
+        if (isDebug) {
+            Debug.Log("Attempting to play BGM1");
+        }
+       
         am.Play("BGM1");
         
     }
@@ -90,12 +104,19 @@ public class GameManager : MonoBehaviour
     public void LoadNextLevel() {
         am.Stop("BGM" + floor);
         floor++;
-        Debug.Log("Loading next level: " + SceneManager.GetActiveScene().buildIndex + 1);
+
+        if (isDebug) {
+            Debug.Log("Loading next level: " + SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
     public void LoadMainMenu() {
-        Debug.Log("Attempting to load main menu");
+        if (isDebug) {
+            Debug.Log("Attempting to load main menu");
+        }
+        
         StartCoroutine(LoadLevel(0)); //Main Menu
     }
 

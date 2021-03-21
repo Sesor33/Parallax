@@ -22,7 +22,7 @@ public class WeaponLogic : MonoBehaviour
         float rotationZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotationZ + offset);
 
-        if (timeBetweenShots <= 0 && !PauseMenu.isPaused) {
+        if (timeBetweenShots <= 0 && !PauseMenu.isPaused && !GameManager.playerIsDead) {
             if (Input.GetMouseButtonDown(0)) {
                 Quaternion bulletDrift = Quaternion.Euler(0, 0, Random.Range(-5f,5f)); //Pick random drift range
                 Instantiate(bullet, startingPoint.position, transform.rotation * bulletDrift); //Fire bullet with drift

@@ -7,6 +7,7 @@ public class BulletLogic : MonoBehaviour
     public float speed;
     public float bulletLifetime;
     public float dist;
+    public int bulletDamage;
     public LayerMask solidObjects;
 
     public GameObject destroyEffect;
@@ -21,8 +22,13 @@ public class BulletLogic : MonoBehaviour
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, dist, solidObjects);
         if (hitInfo.collider != null) {
             if (hitInfo.collider.CompareTag("Enemy")) {
-                //Enemy goes boom
-                Debug.Log("Enemy takes damage here");
+                
+                if (GameManager.isDebug) {
+                    Debug.Log("Enemy takes damage here");
+                }
+
+                hitInfo.collider.GetComponent<EnemyController>().TakeDamage(bulletDamage);
+                
             }
             DestroyBullet();
         }
