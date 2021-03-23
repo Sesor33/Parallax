@@ -28,17 +28,16 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.H)) {
-            //DamagePlayer(5);
             gm.LoadNextLevel();
         }
 
         if (Input.GetKeyDown(KeyCode.Space)) {
-            DamagePlayer(5);
+            TakeDamage(5);
 
         }
     }
 
-    void DamagePlayer(int damage) {
+    public void TakeDamage(int damage) {
         currentHealth -= damage;
         playerHealthBar.SetHealth(currentHealth);
     }

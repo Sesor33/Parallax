@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
        
         am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
+        isDebug = true;
+
     }
 
     // called first

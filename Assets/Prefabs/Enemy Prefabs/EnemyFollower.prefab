@@ -133,6 +133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingPosition: {fileID: 0}
   startingHealth: 3
+  startTimeBetweenShots: 1
+  bullet: {fileID: 1725167152446376307, guid: 3e5640bbe7b49624f8cb06c62e12f7d1, type: 3}
   speed: 2
   maxRange: 3.5
   minRange: 0.5

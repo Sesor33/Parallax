@@ -11,6 +11,13 @@ public class EnemyController : MonoBehaviour
     public int startingHealth;
     private int currentHealth;
 
+    private float timeBetweenShots;
+    public float startTimeBetweenShots;
+
+    public GameObject bullet;
+
+    private bool isFollowingPlayer;
+
     [SerializeField]
     private float speed;
     [SerializeField]
@@ -26,22 +33,35 @@ public class EnemyController : MonoBehaviour
         startingPosition = gameObject.transform.parent.transform;
         target = GameObject.FindObjectOfType<Player>().transform;
         currentHealth = startingHealth;
+        isFollowingPlayer = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         if (Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange) {
+            isFollowingPlayer = true;
             FollowPlayer();
         } 
         else if (Vector3.Distance(target.position, transform.position) >= maxRange) {
-
+            isFollowingPlayer = false;
             GoToStartingPosition();
 
         }
 
         if (currentHealth <= 0) {
             Destroy(gameObject);
+        }
+
+        if (timeBetweenShots <= 0 && isFollowingPlayer) {
+            Quaternion bulletDrift = Quaternion.Euler(0, 0, Random.Range(-5f, 5f));
+
+            Instantiate(bullet, transform.position, transform.rotation * bulletDrift);
+            timeBetweenShots = startTimeBetweenShots;
+        }
+
+        else {
+            timeBetweenShots -= Time.deltaTime;
         }
 
         

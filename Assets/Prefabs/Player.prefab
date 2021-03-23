@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3522650787400543769}
   - component: {fileID: 7513501337580485970}
   - component: {fileID: 2691644980976154100}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -157,6 +157,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aed9239a94bab245815f0b565a9214b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingHealth: 50
+  currentHealth: 0
+  gm: {fileID: 0}
+  playerHealthBar: {fileID: 0}
 --- !u!70 &2691644980976154100
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -213,7 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1604314381912854418}
   - component: {fileID: 6029652047847760301}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,4 +254,5 @@ MonoBehaviour:
   offset: -90
   bullet: {fileID: 8118314777332759294, guid: 24cb111b3a7fa96408b479c1114a15fd, type: 3}
   startingPoint: {fileID: 9118018421392494897}
+  am: {fileID: 0}
   startTimeBetweenShots: 0.2
