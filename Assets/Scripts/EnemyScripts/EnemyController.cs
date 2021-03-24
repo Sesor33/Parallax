@@ -19,8 +19,12 @@ public class EnemyController : MonoBehaviour
 
     public GameObject bullet;
 
+    public Vector3[] movePoints;
+    private int pointToMoveTo;
+
     private bool isFollowingPlayer;
     private bool isGoingHome;
+    private bool isHome;
 
     [SerializeField]
     private float speed;
@@ -37,30 +41,33 @@ public class EnemyController : MonoBehaviour
         startingPosition = gameObject.transform.parent.transform;
         target = GameObject.FindObjectOfType<Player>().transform;
         currentHealth = startingHealth;
+        pointToMoveTo = Random.Range(0, movePoints.Length);
         isFollowingPlayer = false;
         isGoingHome = false;
+        isHome = true;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         
-
+       
 
         if (Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange) {
             isFollowingPlayer = true;
-
+            isHome = false;
             FollowPlayer();
         } 
-        else if (Vector3.Distance(target.position, transform.position) >= maxRange) {
+        else if (Vector3.Distance(target.position, transform.position) >= maxRange && !isHome) {
             isFollowingPlayer = false;
-
+            
             GoToStartingPosition();
 
         }
 
-        if (isGoingHome && Vector3.Distance(transform.position, startingPosition.position) < 0.2f) {
+        else if (isGoingHome && Vector3.Distance(transform.position, startingPosition.position) < 0.2f) {
             isGoingHome = false;
+            isHome = true;
         }
 
         if (currentHealth <= 0) {
@@ -72,12 +79,6 @@ public class EnemyController : MonoBehaviour
 
             Instantiate(bullet, transform.position, transform.rotation * bulletDrift);
             timeBetweenShots = startTimeBetweenShots;
-        }
-
-        if (moveWaitTime <= 0 && !isFollowingPlayer && !isGoingHome) {
-            if (GameManager.isDebug) {
-                Debug.Log("Trying to roam");
-            }
         }
 
         else {
@@ -93,10 +94,17 @@ public class EnemyController : MonoBehaviour
 
     public void GoToStartingPosition() {
         isGoingHome = true;
+
+        if (GameManager.isDebug) {
+            Debug.Log("Going Home");
+        }
+
         transform.position = Vector3.MoveTowards(transform.position, startingPosition.position, speed * Time.deltaTime);
     }
 
     public void TakeDamage(int damage) {
         currentHealth -= damage;
     }
+
+    
 }
