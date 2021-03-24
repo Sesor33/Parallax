@@ -14,9 +14,13 @@ public class EnemyController : MonoBehaviour
     private float timeBetweenShots;
     public float startTimeBetweenShots;
 
+    private float moveWaitTime;
+    public float startMoveWaitTime;
+
     public GameObject bullet;
 
     private bool isFollowingPlayer;
+    private bool isGoingHome;
 
     [SerializeField]
     private float speed;
@@ -34,19 +38,29 @@ public class EnemyController : MonoBehaviour
         target = GameObject.FindObjectOfType<Player>().transform;
         currentHealth = startingHealth;
         isFollowingPlayer = false;
+        isGoingHome = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        
+
+
         if (Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange) {
             isFollowingPlayer = true;
+
             FollowPlayer();
         } 
         else if (Vector3.Distance(target.position, transform.position) >= maxRange) {
             isFollowingPlayer = false;
+
             GoToStartingPosition();
 
+        }
+
+        if (isGoingHome && Vector3.Distance(transform.position, startingPosition.position) < 0.2f) {
+            isGoingHome = false;
         }
 
         if (currentHealth <= 0) {
@@ -58,6 +72,12 @@ public class EnemyController : MonoBehaviour
 
             Instantiate(bullet, transform.position, transform.rotation * bulletDrift);
             timeBetweenShots = startTimeBetweenShots;
+        }
+
+        if (moveWaitTime <= 0 && !isFollowingPlayer && !isGoingHome) {
+            if (GameManager.isDebug) {
+                Debug.Log("Trying to roam");
+            }
         }
 
         else {
@@ -72,6 +92,7 @@ public class EnemyController : MonoBehaviour
     }
 
     public void GoToStartingPosition() {
+        isGoingHome = true;
         transform.position = Vector3.MoveTowards(transform.position, startingPosition.position, speed * Time.deltaTime);
     }
 
