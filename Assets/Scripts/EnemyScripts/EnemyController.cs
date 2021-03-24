@@ -19,7 +19,8 @@ public class EnemyController : MonoBehaviour
 
     public GameObject bullet;
 
-    public Vector3[] movePoints;
+    public LayerMask solidObjects;
+
     private int pointToMoveTo;
 
     private bool isFollowingPlayer;
@@ -41,7 +42,7 @@ public class EnemyController : MonoBehaviour
         startingPosition = gameObject.transform.parent.transform;
         target = GameObject.FindObjectOfType<Player>().transform;
         currentHealth = startingHealth;
-        pointToMoveTo = Random.Range(0, movePoints.Length);
+        pointToMoveTo = Random.Range(0, 4);
         isFollowingPlayer = false;
         isGoingHome = false;
         isHome = true;
@@ -50,8 +51,11 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-       
+         if (moveWaitTime <= 0 && !isFollowingPlayer) {
+           
+
+            moveWaitTime = startMoveWaitTime;
+        }
 
         if (Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange) {
             isFollowingPlayer = true;
@@ -65,7 +69,7 @@ public class EnemyController : MonoBehaviour
 
         }
 
-        else if (isGoingHome && Vector3.Distance(transform.position, startingPosition.position) < 0.2f) {
+        if (isGoingHome && Vector3.Distance(transform.position, startingPosition.position) < 0.2f) {
             isGoingHome = false;
             isHome = true;
         }
@@ -83,6 +87,7 @@ public class EnemyController : MonoBehaviour
 
         else {
             timeBetweenShots -= Time.deltaTime;
+            moveWaitTime -= Time.deltaTime;
         }
 
         

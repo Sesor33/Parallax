@@ -352,17 +352,11 @@ MonoBehaviour:
   startingPosition: {fileID: 0}
   startingHealth: 3
   startTimeBetweenShots: 1
-  startMoveWaitTime: 2
+  startMoveWaitTime: 0.1
   bullet: {fileID: 1725167152446376307, guid: 3e5640bbe7b49624f8cb06c62e12f7d1, type: 3}
-  movePoints:
-  - {fileID: 7735814437586160659}
-  - {fileID: 4426146210766891466}
-  - {fileID: 4243087347990550416}
-  - {fileID: 6322808227819225096}
-  - {fileID: 602454109120626964}
-  - {fileID: 7685826000273336468}
-  - {fileID: 7749392905335972378}
-  - {fileID: 6752538829052394105}
+  solidObjects:
+    serializedVersion: 2
+    m_Bits: 1280
   speed: 2
   maxRange: 3.5
   minRange: 0.5
