@@ -17,7 +17,7 @@ public class BulletLogic : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, dist, solidObjects);
         if (hitInfo.collider != null) {
