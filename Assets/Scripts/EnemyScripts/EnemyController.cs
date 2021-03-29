@@ -14,9 +14,6 @@ public class EnemyController : MonoBehaviour
     private float timeBetweenShots;
     public float startTimeBetweenShots;
 
-    private float moveWaitTime;
-    public float startMoveWaitTime;
-
     public GameObject bullet;
 
     public LayerMask solidObjects;
@@ -42,7 +39,6 @@ public class EnemyController : MonoBehaviour
         startingPosition = gameObject.transform.parent.transform;
         target = GameObject.FindObjectOfType<Player>().transform;
         currentHealth = startingHealth;
-        pointToMoveTo = Random.Range(0, 4);
         isFollowingPlayer = false;
         isGoingHome = false;
         isHome = true;
@@ -51,11 +47,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-         if (moveWaitTime <= 0 && !isFollowingPlayer) {
-           
-
-            moveWaitTime = startMoveWaitTime;
-        }
+         
 
         if (Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange) {
             isFollowingPlayer = true;
@@ -81,13 +73,15 @@ public class EnemyController : MonoBehaviour
         if (timeBetweenShots <= 0 && isFollowingPlayer) {
             Quaternion bulletDrift = Quaternion.Euler(0, 0, Random.Range(-5f, 5f));
 
+            Vector3 dir = (target.transform.position - transform.position);
+            float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
+
             Instantiate(bullet, transform.position, transform.rotation * bulletDrift);
             timeBetweenShots = startTimeBetweenShots;
         }
 
         else {
             timeBetweenShots -= Time.deltaTime;
-            moveWaitTime -= Time.deltaTime;
         }
 
         
