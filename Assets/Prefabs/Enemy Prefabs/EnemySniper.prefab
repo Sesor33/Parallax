@@ -121,7 +121,6 @@ MonoBehaviour:
   solidObjects:
     serializedVersion: 2
     m_Bits: 1280
-  isStationary: 0
   speed: 0
   maxRange: 10
   minRange: 1

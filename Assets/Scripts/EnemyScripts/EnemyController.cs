@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
 
     public GameObject bullet;
 
+    [SerializeField]
     public LayerMask solidObjects;
 
     private int pointToMoveTo;
@@ -23,6 +24,9 @@ public class EnemyController : MonoBehaviour
     private bool isFollowingPlayer;
     private bool isGoingHome;
     private bool isHome;
+    private bool playerInLOS;
+
+    private RaycastHit2D hitInfo;
 
     [SerializeField]
     private float speed;
@@ -39,17 +43,42 @@ public class EnemyController : MonoBehaviour
         startingPosition = gameObject.transform.parent.transform;
         target = GameObject.FindObjectOfType<Player>().transform;
         currentHealth = startingHealth;
+
         isFollowingPlayer = false;
         isGoingHome = false;
         isHome = true;
+        playerInLOS = false;
+
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-         
+        if (Vector3.Distance(target.position, transform.position) <= maxRange) {
+            hitInfo = Physics2D.Raycast(transform.position, target.transform.position - transform.position, Mathf.Infinity, solidObjects);
 
-        if (Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange) {
+            if (GameManager.isDebug) {
+                Debug.DrawRay(transform.position, target.transform.position - transform.position, Color.green);
+            }          
+            
+                if (hitInfo.collider.CompareTag("Player")) {
+                    if (GameManager.isDebug) {
+                        Debug.Log("Player in LoS");
+                    }
+                    playerInLOS = true;
+            }
+                else {
+                    if (GameManager.isDebug) {
+                        Debug.Log("Hitting something else: " + hitInfo.collider.name);
+                    }
+                    playerInLOS = false;
+                }
+            
+        
+        }
+
+        if (Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange && playerInLOS) {
             isFollowingPlayer = true;
             isHome = false;
             FollowPlayer();
