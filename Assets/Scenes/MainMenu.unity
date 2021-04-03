@@ -1538,7 +1538,7 @@ PrefabInstance:
     - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
         type: 3}
       propertyPath: clips.Array.size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
         type: 3}
@@ -1594,6 +1594,71 @@ PrefabInstance:
         type: 3}
       propertyPath: clips.Array.data[5].loop
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[6].name
+      value: BGM3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: e4d41726910a89943b78a9acbe1c2b5d, type: 3}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[6].vol
+      value: 0.138
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[6].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[6].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[0].vol
+      value: 0.352
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[2].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[3].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[7].name
+      value: BGM4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5245c7beef71ca5429448a8eb81bd615, type: 3}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[7].vol
+      value: 0.138
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[7].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[7].loop
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6394015182165578132, guid: 8be1bb3aeedba274c955f619308c870e,
         type: 3}
