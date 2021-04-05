@@ -121,6 +121,8 @@ MonoBehaviour:
   solidObjects:
     serializedVersion: 2
     m_Bits: 1280
+  am: {fileID: 0}
+  type: 1
   speed: 1
   maxRange: 5
   minRange: 1

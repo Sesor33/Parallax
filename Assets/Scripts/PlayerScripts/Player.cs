@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
 
         isInvulnerable = true;
         
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
 
         isInvulnerable = false;
     }

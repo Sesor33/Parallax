@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public enum EnemyType {
+        Small,
+        Large,
+        Sniper
+    }
+
 
     private Transform target;
     public Transform startingPosition;
@@ -26,8 +32,11 @@ public class EnemyController : MonoBehaviour
     private bool isHome;
     private bool playerInLOS;
 
+    public AudioManager am;
 
     private RaycastHit2D hitInfo;
+
+    public EnemyType type;
 
     [SerializeField]
     public float speed;
@@ -41,9 +50,13 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        
         startingPosition = gameObject.transform.parent.transform;
         target = GameObject.FindObjectOfType<Player>().transform;
         currentHealth = startingHealth;
+
+        am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
         isFollowingPlayer = false;
         isGoingHome = false;
@@ -107,6 +120,19 @@ public class EnemyController : MonoBehaviour
             float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
 
             Instantiate(bullet, transform.position, transform.rotation * bulletDrift);
+
+            switch(type) {
+                case EnemyType.Small:
+                    am.Play("BlasterSFXSmall");
+                    break;
+                case EnemyType.Large:
+                    am.Play("BlasterSFXBig");
+                    break;
+                case EnemyType.Sniper:
+                    am.Play("BlasterSFXSniper");
+                    break;
+            }
+
             timeBetweenShots = startTimeBetweenShots;
         }
 
