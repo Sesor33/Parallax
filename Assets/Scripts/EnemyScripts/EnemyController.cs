@@ -69,6 +69,10 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (GameManager.playerIsDead) {
+            GoToStartingPosition();
+        }
+
         if (Vector3.Distance(target.position, transform.position) <= maxRange) {
             hitInfo = Physics2D.Raycast(transform.position, target.transform.position - transform.position, Mathf.Infinity, solidObjects);
 
@@ -113,7 +117,7 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (timeBetweenShots <= 0 && isFollowingPlayer) {
+        if (timeBetweenShots <= 0 && isFollowingPlayer && !GameManager.playerIsDead) {
             Quaternion bulletDrift = Quaternion.Euler(0, 0, Random.Range(-5f, 5f));
 
             Vector3 dir = (target.transform.position - transform.position);
