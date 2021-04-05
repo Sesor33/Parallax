@@ -26,14 +26,15 @@ public class EnemyController : MonoBehaviour
     private bool isHome;
     private bool playerInLOS;
 
+
     private RaycastHit2D hitInfo;
 
     [SerializeField]
-    private float speed;
+    public float speed;
     [SerializeField]
-    private float maxRange;
+    public float maxRange;
     [SerializeField]
-    private float minRange;
+    public float minRange;
 
     
 

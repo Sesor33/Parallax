@@ -14,14 +14,17 @@ public class Player : MonoBehaviour
     //[HideInInspector]
     public HealthBar playerHealthBar;
 
+    private bool isInvulnerable;
+
     // Start is called before the first frame update
     void Start()
     {
-        //Find game manager, reference it, initialize health bar
+        //Find game manager, reference it, initialize health bar        
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         playerHealthBar = FindObjectOfType<HealthBar>().GetComponent<HealthBar>();
         currentHealth = startingHealth;
         playerHealthBar.SetMaxHealth(startingHealth);
+        isInvulnerable = false;
     }
 
     // Update is called once per frame
@@ -30,15 +33,26 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H)) {
             gm.LoadNextLevel();
         }
-
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            TakeDamage(5);
-
-        }
     }
 
     public void TakeDamage(int damage) {
-        currentHealth -= damage;
-        playerHealthBar.SetHealth(currentHealth);
+        if (!isInvulnerable) {
+            currentHealth -= damage;
+            playerHealthBar.SetHealth(currentHealth);
+
+            if (currentHealth > 0) {
+                StartCoroutine("iFrames");
+            }
+        }
+        
+    }
+
+    IEnumerator iFrames() {
+
+        isInvulnerable = true;
+        
+        yield return new WaitForSeconds(5f);
+
+        isInvulnerable = false;
     }
 }
