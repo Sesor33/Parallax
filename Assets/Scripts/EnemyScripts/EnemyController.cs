@@ -96,7 +96,8 @@ public class EnemyController : MonoBehaviour
         
         }
 
-        if (Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange && playerInLOS) {
+        if (Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange
+            && playerInLOS && !GameManager.playerIsDead) {
             isFollowingPlayer = true;
             isHome = false;
             FollowPlayer();
