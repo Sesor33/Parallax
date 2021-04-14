@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public static int floor;
     public static bool isDebug;
 
+    public static int playerDamage;
+
     void Awake() {
         DontDestroyOnLoad(gameObject);
 
@@ -87,6 +89,8 @@ public class GameManager : MonoBehaviour
         player = GameObject.Find("Player").GetComponent<Player>();
 
         playerIsDead = false;
+
+        playerDamage = 1;
 
         if (isDebug) {
             Debug.Log("Attempting to play BGM1");

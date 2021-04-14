@@ -7,7 +7,6 @@ public class BulletLogic : MonoBehaviour
     public float speed;
     public float bulletLifetime;
     public float dist;
-    public int bulletDamage;
     public LayerMask solidObjects;
 
     public GameObject destroyEffect;
@@ -27,17 +26,10 @@ public class BulletLogic : MonoBehaviour
                     Debug.Log("Enemy takes damage here");
                 }
 
-                hitInfo.collider.GetComponent<EnemyController>().TakeDamage(bulletDamage);
+                hitInfo.collider.GetComponent<EnemyController>().TakeDamage(GameManager.playerDamage);
                 
             }
 
-            else if (hitInfo.collider.CompareTag("Player")) {
-                if (GameManager.isDebug) {
-                    Debug.Log("Player takes damage here");
-                }
-
-                hitInfo.collider.GetComponent<Player>().TakeDamage(bulletDamage);
-            }
             DestroyBullet();
         }
 
