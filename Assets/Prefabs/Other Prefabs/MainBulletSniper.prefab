@@ -95,7 +95,7 @@ MonoBehaviour:
   speed: 15
   bulletLifetime: 0.7
   dist: 0.1
-  bulletDamage: 20
+  bulletDamage: 15
   solidObjects:
     serializedVersion: 2
     m_Bits: 1280

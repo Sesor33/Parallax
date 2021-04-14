@@ -33,6 +33,7 @@ public class BulletLogicEnemy : MonoBehaviour
                     Debug.Log("Player takes damage here");
                 }
 
+
                 hitInfo.collider.GetComponent<Player>().TakeDamage(bulletDamage);
             }
             DestroyBullet();
