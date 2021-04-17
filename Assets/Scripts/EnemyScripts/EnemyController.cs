@@ -115,6 +115,7 @@ public class EnemyController : MonoBehaviour
         }
 
         if (currentHealth <= 0) {
+            GameManager.incrementEnemiesKilled();
             Destroy(gameObject);
         }
 

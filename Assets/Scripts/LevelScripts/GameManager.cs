@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 
     public static int playerDamage;
 
+    public static int enemiesKilled;
+
     void Awake() {
         DontDestroyOnLoad(gameObject);
 
@@ -35,6 +37,7 @@ public class GameManager : MonoBehaviour
        
         am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
+        //DEBUG LINE, SET THIS TO FALSE TO DISABLE ALL DEBUG STATEMENTS
         isDebug = true;
 
     }
@@ -92,6 +95,8 @@ public class GameManager : MonoBehaviour
 
         playerDamage = 1;
 
+        enemiesKilled = 0;
+
         if (isDebug) {
             Debug.Log("Attempting to play BGM1");
         }
@@ -124,6 +129,10 @@ public class GameManager : MonoBehaviour
         }
         
         StartCoroutine(LoadLevel(0)); //Main Menu
+    }
+
+    public static void incrementEnemiesKilled() {
+        enemiesKilled++;
     }
 
     IEnumerator LoadLevel(int levelIndex) {
