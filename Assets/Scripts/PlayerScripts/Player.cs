@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 
     private bool isInvulnerable;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
         currentHealth = startingHealth;
         playerHealthBar.SetMaxHealth(startingHealth);
         isInvulnerable = false;
+
     }
 
     // Update is called once per frame
@@ -51,8 +53,10 @@ public class Player : MonoBehaviour
 
         isInvulnerable = true;
         
+        
         yield return new WaitForSeconds(1f);
 
+        
         isInvulnerable = false;
     }
 }

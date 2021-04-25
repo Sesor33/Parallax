@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject quitMenu;
     public GameObject mainMenuMenu;
+    public GameObject gameOverMenu;
     [HideInInspector]
     public static bool isPaused = false;
 
@@ -30,13 +31,17 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.playerIsDead) {
             if (isPaused) {
                 resume();
             }
             else {
                 pause();
             }
+        }
+
+        if (GameManager.playerIsDead) {
+            gameOverMenu.SetActive(true);
         }
          
     }
