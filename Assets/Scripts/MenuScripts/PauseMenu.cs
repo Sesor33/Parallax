@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
 
     public Animator transitionController;
 
-    private AudioManager am;
+    public AudioManager am;
     private GameManager gm;
 
     
@@ -49,7 +49,7 @@ public class PauseMenu : MonoBehaviour
     public void pause() {
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
-        am.Pause("BGM" + GameManager.floor);
+        am.Pause("BGM" + gm.getFloor());
         isPaused = true;
     }
 
@@ -58,13 +58,13 @@ public class PauseMenu : MonoBehaviour
         quitMenu.SetActive(false);
         mainMenuMenu.SetActive(false);
         Time.timeScale = 1f;
-        am.Unpause("BGM" + GameManager.floor);
+        am.Unpause("BGM" + gm.getFloor());
         isPaused = false;
     }
 
     public void goToMainMenu() {       
         isPaused = false;
-        am.Stop("BGM" + GameManager.floor);
+        am.Stop("BGM" + gm.getFloor());
         Time.timeScale = 1f;
         Debug.Log("Attempting to load main menu from pausemenu");
         LoadMainMenu();

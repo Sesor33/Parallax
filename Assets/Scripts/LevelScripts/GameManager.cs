@@ -135,6 +135,10 @@ public class GameManager : MonoBehaviour
         enemiesKilled++;
     }
 
+    public int getFloor() {
+        return floor;
+    }
+
     IEnumerator LoadLevel(int levelIndex) {
         transitionController.SetTrigger("Start");
 
