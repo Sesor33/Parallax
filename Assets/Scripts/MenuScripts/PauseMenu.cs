@@ -64,10 +64,18 @@ public class PauseMenu : MonoBehaviour
 
     public void goToMainMenu() {       
         isPaused = false;
-        am.Stop("BGM" + gm.getFloor());
+        AudioManager.instance.Stop("BGM" + GameManager.instance.getFloor());
         Time.timeScale = 1f;
         Debug.Log("Attempting to load main menu from pausemenu");
-        LoadMainMenu();
+
+        if (GameManager.playerIsDead) {
+            SceneManager.LoadScene(0);
+        }
+
+        else {
+            LoadMainMenu();
+        }
+        
     }
 
     public void quitGame() {

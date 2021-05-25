@@ -139,6 +139,10 @@ public class GameManager : MonoBehaviour
         return floor;
     }
 
+    public void stopCurrentFloorSong() {
+        am.Stop("BGM" + floor);
+    }
+
     IEnumerator LoadLevel(int levelIndex) {
         transitionController.SetTrigger("Start");
 
