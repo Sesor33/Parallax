@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.H) && GameManager.isDebug) {
-            gm.LoadNextLevel();
+            GameManager.instance.LoadNextLevel();
         }
     }
 
@@ -43,13 +43,25 @@ public class Player : MonoBehaviour
             playerHealthBar.SetHealth(currentHealth);
 
             if (currentHealth > 0) {
-                StartCoroutine("iFrames");
+                StartCoroutine("IFrames");
             }
         }
         
     }
 
-    IEnumerator iFrames() {
+    public void HealPlayer(int healAmount) {
+        if (currentHealth + healAmount > startingHealth) {
+            currentHealth = 50;
+        }
+
+        else {
+            currentHealth += healAmount;
+        }
+
+        playerHealthBar.SetHealth(currentHealth);
+    }
+
+    IEnumerator IFrames() {
 
         isInvulnerable = true;
         

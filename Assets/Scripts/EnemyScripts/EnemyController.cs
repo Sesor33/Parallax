@@ -10,7 +10,6 @@ public class EnemyController : MonoBehaviour
         Sniper
     }
 
-
     private Transform target;
     public Transform startingPosition;
 
@@ -44,6 +43,8 @@ public class EnemyController : MonoBehaviour
     public float maxRange;
     [SerializeField]
     public float minRange;
+
+    public GameObject[] dropTable;
 
     
 
@@ -116,6 +117,7 @@ public class EnemyController : MonoBehaviour
 
         if (currentHealth <= 0) {
             GameManager.incrementEnemiesKilled();
+            DropRandomItem();
             Destroy(gameObject);
         }
 
@@ -165,6 +167,10 @@ public class EnemyController : MonoBehaviour
 
     public void TakeDamage(int damage) {
         currentHealth -= damage;
+    }
+
+    private void DropRandomItem() {
+        Instantiate(dropTable[Random.Range(0,dropTable.Length)], transform.position, Quaternion.identity);
     }
 
     

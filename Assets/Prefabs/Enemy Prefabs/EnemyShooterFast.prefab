@@ -121,9 +121,17 @@ MonoBehaviour:
   solidObjects:
     serializedVersion: 2
     m_Bits: 1280
+  am: {fileID: 0}
+  type: 0
   speed: 2
   maxRange: 3.5
   minRange: 0.5
+  dropTable:
+  - {fileID: 7202067160640271707, guid: 97105ca4be6c3a04285b84a5aa9b7470, type: 3}
+  - {fileID: 9083564083405356361, guid: b17dff503ffcb7c47a9733c134021001, type: 3}
+  - {fileID: 9083564083405356361, guid: b17dff503ffcb7c47a9733c134021001, type: 3}
+  - {fileID: 9083564083405356361, guid: b17dff503ffcb7c47a9733c134021001, type: 3}
+  - {fileID: 9083564083405356361, guid: b17dff503ffcb7c47a9733c134021001, type: 3}
 --- !u!58 &4907125942684442081
 CircleCollider2D:
   m_ObjectHideFlags: 0

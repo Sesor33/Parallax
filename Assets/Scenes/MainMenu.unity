@@ -1538,7 +1538,7 @@ PrefabInstance:
     - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
         type: 3}
       propertyPath: clips.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
         type: 3}
@@ -1734,6 +1734,26 @@ PrefabInstance:
         type: 3}
       propertyPath: clips.Array.data[10].loop
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[11].name
+      value: HealthPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[11].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5bbd498282c594b43912dc9371f42d4f, type: 3}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[11].vol
+      value: 0.138
+      objectReference: {fileID: 0}
+    - target: {fileID: 6394015182165578131, guid: 8be1bb3aeedba274c955f619308c870e,
+        type: 3}
+      propertyPath: clips.Array.data[11].pitch
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6394015182165578132, guid: 8be1bb3aeedba274c955f619308c870e,
         type: 3}
