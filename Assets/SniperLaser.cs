@@ -9,6 +9,9 @@ public class SniperLaser : MonoBehaviour
 
     private RaycastHit2D hitInfo;
 
+    [SerializeField]
+    public LayerMask solidObjects;
+
     public int laserMaxRange;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +24,9 @@ public class SniperLaser : MonoBehaviour
     void Update() {
         laser.SetPosition(0, transform.position);
         if (Vector3.Distance(target.position, transform.position) <= laserMaxRange) {
-            laser.SetPosition(1, target.transform.position);
+            hitInfo = Physics2D.Raycast(transform.position, target.transform.position - transform.position, Mathf.Infinity, solidObjects);
+            laser.SetPosition(1, hitInfo.point);
+            //laser.SetPosition(1, target.transform.position);
         }
 
         else {
