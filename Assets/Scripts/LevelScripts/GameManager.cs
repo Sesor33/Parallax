@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
         am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
         //DEBUG LINE, SET THIS TO FALSE TO DISABLE ALL DEBUG STATEMENTS
-        isDebug = false;
+        isDebug = true;
 
     }
 

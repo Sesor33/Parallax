@@ -121,7 +121,7 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (timeBetweenShots <= 0 && isFollowingPlayer && !GameManager.playerIsDead) {
+        if (timeBetweenShots <= 0 && isFollowingPlayer && !GameManager.playerIsDead && playerInLOS) {
             Quaternion bulletDrift = Quaternion.Euler(0, 0, Random.Range(-5f, 5f));
 
             Vector3 dir = (target.transform.position - transform.position);
