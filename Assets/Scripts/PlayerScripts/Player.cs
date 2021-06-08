@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
 
     public GameManager gm;
 
+    public Animator animationController;
+
     //[HideInInspector]
     public HealthBar playerHealthBar;
 
@@ -43,6 +45,7 @@ public class Player : MonoBehaviour
             playerHealthBar.SetHealth(currentHealth);
 
             if (currentHealth > 0) {
+
                 StartCoroutine("IFrames");
             }
         }
@@ -64,8 +67,8 @@ public class Player : MonoBehaviour
     IEnumerator IFrames() {
 
         isInvulnerable = true;
-        
-        
+
+        animationController.SetTrigger("isHit");
         yield return new WaitForSeconds(1f);
 
         

@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1445328873
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: 4fc5b3dbfef60044a9859043be5f08fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -134,6 +134,7 @@ MonoBehaviour:
   startingHealth: 50
   currentHealth: 0
   gm: {fileID: 0}
+  animationController: {fileID: 7079658937421903828}
   playerHealthBar: {fileID: 0}
 --- !u!70 &2691644980976154100
 CapsuleCollider2D:
