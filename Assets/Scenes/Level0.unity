@@ -492,6 +492,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1918011541 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3522650787400543774, guid: 67a332ce17caa6d469bd4d8ea23e2717,
+    type: 3}
+  m_PrefabInstance: {fileID: 1029750885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!50 &2066828411 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 3522650787400543772, guid: 67a332ce17caa6d469bd4d8ea23e2717,
@@ -1115,6 +1121,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cameras
       objectReference: {fileID: 0}
+    - target: {fileID: 8400045068045655019, guid: d7e73cab6c6954b44979e4cc5b83f301,
+        type: 3}
+      propertyPath: objectToFollow
+      value: 
+      objectReference: {fileID: 1918011541}
     - target: {fileID: 8400045068045655031, guid: d7e73cab6c6954b44979e4cc5b83f301,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1125,6 +1136,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8400045068171026624, guid: d7e73cab6c6954b44979e4cc5b83f301,
+        type: 3}
+      propertyPath: objectToFollow
+      value: 
+      objectReference: {fileID: 1918011541}
     - target: {fileID: 8400045068171026636, guid: d7e73cab6c6954b44979e4cc5b83f301,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1140,5 +1156,10 @@ PrefabInstance:
       propertyPath: m_TargetTexture
       value: 
       objectReference: {fileID: 8400000, guid: 0318865d3e13ebe458b523e1d98317fc, type: 2}
+    - target: {fileID: 8400045068171026639, guid: d7e73cab6c6954b44979e4cc5b83f301,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 1335
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7e73cab6c6954b44979e4cc5b83f301, type: 3}
