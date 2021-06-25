@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {   
         canMove = false;
-        gameObject.tag = "Player";
         rig = GetComponent<Rigidbody2D>();
         Invoke("startMove", 1f);
     }
