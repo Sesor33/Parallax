@@ -1056,6 +1056,11 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 1847
       objectReference: {fileID: 0}
+    - target: {fileID: 8400045066833210937, guid: d7e73cab6c6954b44979e4cc5b83f301,
+        type: 3}
+      propertyPath: m_Depth
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8400045066833211078, guid: d7e73cab6c6954b44979e4cc5b83f301,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1131,6 +1136,11 @@ PrefabInstance:
       propertyPath: objectToFollow
       value: 
       objectReference: {fileID: 1918011541}
+    - target: {fileID: 8400045068045655030, guid: d7e73cab6c6954b44979e4cc5b83f301,
+        type: 3}
+      propertyPath: m_Depth
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8400045068045655031, guid: d7e73cab6c6954b44979e4cc5b83f301,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1156,6 +1166,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8400045068171026636, guid: d7e73cab6c6954b44979e4cc5b83f301,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -30
+      objectReference: {fileID: 0}
     - target: {fileID: 8400045068171026639, guid: d7e73cab6c6954b44979e4cc5b83f301,
         type: 3}
       propertyPath: m_TargetTexture
@@ -1165,6 +1180,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 3383
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400045068171026639, guid: d7e73cab6c6954b44979e4cc5b83f301,
+        type: 3}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8400045068171026639, guid: d7e73cab6c6954b44979e4cc5b83f301,
+        type: 3}
+      propertyPath: m_Depth
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7e73cab6c6954b44979e4cc5b83f301, type: 3}
