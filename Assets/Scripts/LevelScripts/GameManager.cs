@@ -33,8 +33,9 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        
+        QualitySettings.vSyncCount = 1;
 
-       
         am = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
         //DEBUG LINE, SET THIS TO FALSE TO DISABLE ALL DEBUG STATEMENTS
@@ -65,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {       
 
         if (SceneManager.GetActiveScene().buildIndex == 1) {
             InitializeGame();
